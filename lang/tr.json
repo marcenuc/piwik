@@ -269,7 +269,6 @@
         "Tax": "Vergi",
         "TimeAgo": "%s önce",
         "TimeOnPage": "Sayfadaki süre",
-        "Today": "Bugün",
         "Total": "Toplam",
         "TotalRevenue": "Toplam Kazanç",
         "TotalVisitsPageviewsRevenue": "(Toplam: %s ziyaretler, %s sayfa gösteirmleri, %s gelir)",
@@ -307,9 +306,7 @@
         "YearlyReport": "yıllık",
         "YearlyReports": "Yıllık raporlar",
         "YearsDays": "%1$s yıl %2$s gün",
-        "YearShort": "yıl",
         "Yes": "Evet",
-        "Yesterday": "Gün",
         "YouMustBeLoggedIn": "Bu işleve erişmek için oturumu açmış olmanız gerekmekte.",
         "YourChangesHaveBeenSaved": "Değişiklikleriniz kaydedildi."
     },

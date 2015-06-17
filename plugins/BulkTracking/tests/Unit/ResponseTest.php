@@ -48,7 +48,7 @@ class ResponseTest extends UnitTestCase
         $this->response->outputException($tracker, new Exception('My Custom Message'), 400);
         $content = $this->response->getOutput();
 
-        $this->assertEquals('{"status":"error","tracked":5}', $content);
+        $this->assertEquals('{"status":"error","tracked":5,"skipped":0}', $content);
     }
 
     public function test_outputException_shouldOutputDebugMessageIfEnabled()
@@ -59,7 +59,7 @@ class ResponseTest extends UnitTestCase
         $this->response->outputException($tracker, new Exception('My Custom Message'), 400);
         $content = $this->response->getOutput();
 
-        $this->assertStringStartsWith('{"status":"error","tracked":5,"message":"My Custom Message\n', $content);
+        $this->assertStringStartsWith('{"status":"error","tracked":5,"skipped":0,"message":"My Custom Message\n', $content);
     }
 
     public function test_outputResponse_shouldOutputBulkResponse()
@@ -69,7 +69,7 @@ class ResponseTest extends UnitTestCase
         $this->response->outputResponse($tracker);
         $content = $this->response->getOutput();
 
-        $this->assertEquals('{"status":"success","tracked":5}', $content);
+        $this->assertEquals('{"status":"success","tracked":5,"skipped":0}', $content);
     }
 
     public function test_outputResponse_shouldNotOutputAnything_IfExceptionResponseAlreadySent()
@@ -80,7 +80,18 @@ class ResponseTest extends UnitTestCase
         $this->response->outputResponse($tracker);
         $content = $this->response->getOutput();
 
-        $this->assertEquals('{"status":"error","tracked":5}', $content);
+        $this->assertEquals('{"status":"error","tracked":5,"skipped":0}', $content);
+    }
+
+    public function test_outputResponse_shouldOutputSkippedRequests_IfSkippedCountSet()
+    {
+        $tracker = $this->getTrackerWithCountedRequests();
+
+        $this->response->setSkippedCount(3);
+        $this->response->outputResponse($tracker);
+        $content = $this->response->getOutput();
+
+        $this->assertEquals('{"status":"success","tracked":5,"skipped":3}', $content);
     }
 
     private function getTrackerWithCountedRequests()

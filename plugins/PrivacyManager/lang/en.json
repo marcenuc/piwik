@@ -28,6 +28,7 @@
         "DeleteReportsInfo3": "If you have enabled \"%s\", the data will be permanently lost.",
         "DeleteReportsOlderThan": "Delete reports older than",
         "DeleteSchedulingSettings": "Schedule old data deletion",
+        "DeleteDataSettings": "Delete old visitor logs and reports",
         "DoNotTrack_Description": "Do Not Track is a technology and policy proposal that enables users to opt out of tracking by websites they do visit, including analytics services, advertising networks, and social platforms.",
         "DoNotTrack_Disable": "Disable Do Not Track support",
         "DoNotTrack_Disabled": "Piwik is currently tracking all visitors, even when they specified \"I do not want to be tracked\" in their web browsers.",
